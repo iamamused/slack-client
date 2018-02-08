@@ -186,6 +186,23 @@ class AttachmentBuilder
     }
 
     /**
+     * Adds an action to the attachment.
+     *
+     * @param AttachmentAction $action The action to add.
+     * @return $this
+     */
+    public function addAction(AttachmentAction $action)
+    {
+        if (!isset($this->data['actions'])) {
+            $this->data['actions'] = [];
+        }
+
+        $this->data['actions'][] = $action->data;
+
+        return $this;
+    }
+
+    /**
      * Enables or disables Markdown parsing in fields.
      *
      * @param bool $enable Whether Markdown should be enabled.
